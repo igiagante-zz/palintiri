@@ -20,7 +20,7 @@ import edu.vandy.view.DotArrayAdapter.DotColor;
  * provided a reference to MVP.RequiredViewOps, which is used to
  * manipulate the UI.  The Options singleton contains the number of
  * beings to simulate and the number of palantiri to simulate.
- * 
+ *
  * The simulation should run as follows: the correct number of
  * palantiri should be instantiated and added to the LeasePool in the
  * Model layer.  A Java thread should be created for each Being.  Each
@@ -38,16 +38,16 @@ import edu.vandy.view.DotArrayAdapter.DotColor;
  * MVP.RequiredModelOps so it can be created/managed by the
  * GenericModel framework.
  */
-public class PalantiriPresenter 
+public class PalantiriPresenter
        extends GenericModel<MVP.RequiredPresenterOps,
                             MVP.ProvidedModelOps,
                             PalantiriModel>
-       implements MVP.ProvidedPresenterOps, 
+       implements MVP.ProvidedPresenterOps,
                   MVP.RequiredPresenterOps {
     /**
      * Used for Android debugging.
      */
-    private final static String TAG = 
+    private final static String TAG =
         PalantiriPresenter.class.getName();
 
     /**
@@ -84,7 +84,7 @@ public class PalantiriPresenter
      */
     private List<DotColor> mPalantiriColors =
         new ArrayList<>();
-	
+
     /**
      * This List keeps track of how many beings we have and whether
      * they're gazing or not.
@@ -104,7 +104,7 @@ public class PalantiriPresenter
      * created.  One time initialization code goes here, e.g., storing
      * a WeakReference to the View layer and initializing the Model
      * layer.
-     * 
+     *
      * @param view
      *            A reference to the View layer.
      */
@@ -125,7 +125,7 @@ public class PalantiriPresenter
 
         // Initialize the Options singleton using the extras contained
         // in the intent.
-        if (Options.instance().parseArgs(view.getActivityContext(), 
+        if (Options.instance().parseArgs(view.getActivityContext(),
                                          makeArgv(intent)) == false)
             Utils.showToast(view.getActivityContext(),
                             "Arguments were incorrect");
@@ -139,7 +139,7 @@ public class PalantiriPresenter
      * initialize the PalantiriPresenter object after it's been
      * created.
      *
-     * @param view         
+     * @param view
      *          The currently active MVP.RequiredViewOps.
      */
     @Override
@@ -259,7 +259,7 @@ public class PalantiriPresenter
      * Create/start a List of BeingThreads that represent the Beings
      * in this simulation.  Each Thread is passed a BeingRunnable
      * parameter that performs the Being gazing logic.
-     * 
+     *
      * @param beingCount
      *            Number of Being Threads to create.
      */
@@ -291,7 +291,7 @@ public class PalantiriPresenter
         // layer that the simulation is done.
         // @@ TODO -- you fill in here.
 
-        Thread t = new Thread(new Runnable() {
+        new Thread(new Runnable() {
             @Override
             public void run() {
                 // Barrier synchronization.

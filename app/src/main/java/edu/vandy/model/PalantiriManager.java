@@ -66,7 +66,9 @@ public class PalantiriManager {
         // TODO -- you fill in here.
 
         mAvailablePalantiri.acquireUninterruptibly();
+
         synchronized (this) {
+
             for(Map.Entry<Palantir, Boolean> entry : mPalantiriMap.entrySet()) {
                 if(entry.getValue()) {
                     entry.setValue(false);
@@ -90,6 +92,8 @@ public class PalantiriManager {
         synchronized (this) {
             mPalantiriMap.put(palantir, true);
         }
+
+        mAvailablePalantiri.release();
     }
 
     /*

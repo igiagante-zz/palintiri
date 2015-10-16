@@ -94,7 +94,7 @@ public class BeingRunnable
                 // Show that we're gazing on the screen.
                 mPresenter.mView.get().markGazing(mIndex);
 
-                // Gaze at my Palantir for the alloted time.
+                // Gaze at my Palantir for the alloted time.3
                 palantir.gaze();
 
                 // Show that we're no longer gazing.
